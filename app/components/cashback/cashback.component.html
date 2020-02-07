@@ -1,0 +1,41 @@
+<ActionBar title="CASHBACK" class="action-bar">
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+	<ActionItem>
+		<StackLayout>
+			<Image src="~/images/icone-spoten-negativo.png" style="margin-right: 10;" (tap)="navigate('consumo')"></Image>
+			<!--<Label text="&#xf217;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('consumo')" style="color: #ffffff"></Label>-->
+		</StackLayout>
+	</ActionItem>
+	<ActionItem>
+		<StackLayout>
+			<Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')"></Label>
+		</StackLayout>
+	</ActionItem>
+</ActionBar>
+
+<GridLayout rows="15*,*" columns="*">
+	<ListView row="0" separatorColor="transparent" [items]="cashbackLst" class="list">
+		<ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+			<GridLayout rows="*,*" (tap)="itemTap(item)">
+				<GridLayout row="0" rows="*,*">
+					<Label row="0" class="descName font" [text]="descricao_nome(item)"></Label>
+				</GridLayout>
+				<GridLayout row="1" columns="8* 2*" class="bar {{item.percentComplete == 100? 'passaro': ''}}">
+					<GridLayout col="0" [columns]="setProgressbarWidth(item.percentComplete)" class="progressbar">
+						<StackLayout col="0" [class]="progressbar(item)"></StackLayout>
+					</GridLayout>
+					<StackLayout col="1" class="descValue">
+						<Label *ngIf="item.percentComplete == 100; else elseBlock" text="&#xf4ba;" horizontalAlignment="stretch" class="icon icon-font-menu"></Label>
+						<ng-template #elseBlock>
+							<Label [text]="descricao_spots(item)"></Label>
+						</ng-template>
+					</StackLayout>
+				</GridLayout>
+			</GridLayout>
+		</ng-template>
+	</ListView>
+	<StackLayout row="1" style="background-color: #333333;">
+		<barra-menu></barra-menu>
+	</StackLayout>
+	<ActivityIndicator rowSpan="3" busy="{{ isLoading }}" width="30" height="30"></ActivityIndicator>
+</GridLayout>

@@ -1,0 +1,29 @@
+RadListView {
+    margin-right: -2;
+}
+
+.listItemTemplateGrid {
+    margin: 2;
+    background-color: #f3f3f3;
+    margin: 5;
+    grid-row: auto;
+    border-radius: 20;
+}
+
+.labelsStackLayout {
+    background-color: rgb(255, 255, 255, 0.7);
+    padding-top: 8;
+    padding-bottom: 8;
+    padding-left: 16;
+    padding-right: 16;
+}
+
+.imageGrid {
+    max-width: 75px;
+    max-height: 75px;
+}
+
+.labelItem {
+    text-align: center;
+    vertical-align: middle;
+}

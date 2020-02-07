@@ -1,0 +1,50 @@
+<ActionBar title="HOME" class="action-bar">
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()" style="color: #ffffff"></NavigationButton>
+    <ActionItem>
+        <StackLayout>
+            <Image src="~/images/icone-spoten-negativo.png" style="margin-right: 10;" (tap)="navigate('consumo')"></Image>
+            <!--<Label text="&#xf217;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('consumo')" style="color: #ffffff"></Label>-->
+        </StackLayout>
+    </ActionItem>
+    <ActionItem>
+        <StackLayout>
+            <Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')" style="color: #ffffff"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout rows="15*, *">
+    <GridLayout row="0" rows="4* 5*">
+        <GridLayout row="0" style="width:100%; margin-bottom: 25;">
+        <Image row="0" [src]="atual?.image" stretch="aspectFill"></Image>
+        <GridLayout row="0" rows="*,auto" columns="1* 8* 1*" class="slides">
+            <GridLayout col="0" (tap)="toLeft()">
+                <Label text="&#xf053;" class="icon arrow"></Label>
+            </GridLayout>
+            <GridLayout col="2" (tap)="toRigth()">
+                <Label text="&#xf054;" class="icon arrow"></Label>
+            </GridLayout>
+            <GridLayout col="1" (tap)="select()"></GridLayout>
+        </GridLayout>
+        </GridLayout>
+
+        <GridLayout row="1" rows="* * *">
+            <GridLayout row="0" (tap)="navigate('/spots_dobr')" class="btn-alta font">
+                <Label text="Spots Dobrados" class="text-btn"></Label>
+            </GridLayout>
+            <GridLayout row="1" (tap)="navigate('/melhores')" class="btn-alta font">
+                <Label text="Melhores da cidade" class="text-btn"></Label>
+            </GridLayout>
+            <GridLayout row="2" (tap)="navigate('/exclusivos')" class="btn-alta font">
+                <Label text="Exclusivos para você" class="text-btn"></Label>
+            </GridLayout>
+        </GridLayout>
+    </GridLayout>
+    <ActivityIndicator busy="{{ isLoading }}" width="30" height="30" style="vertical-align: middle;"></ActivityIndicator>
+    <StackLayout row="1" style="background-color: #333333;">
+        <barra-menu></barra-menu>
+    </StackLayout>
+
+    
+
+</GridLayout>

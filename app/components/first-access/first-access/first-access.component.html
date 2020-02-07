@@ -1,0 +1,13 @@
+<GridLayout *ngIf="isLoading" columns="1*" rows="7*, auto">
+    <GridLayout row="0" style="margin-top: 10; margin-left: 10; margin-right: 10;">
+        <GridLayout [carousel]="images" carouselArrows="small" carouselLabelOverlay="false" carouselSpeed="5000"></GridLayout>
+    </GridLayout>
+    <GridLayout row="1" style="position: relative;">
+        <StackLayout style="vertical-align: middle; margin-left: 10; margin-right: 10; margin-bottom:5; margin-top: 5;">
+            <Button class="button-first font" text="Cadastrar" (tap)="navigate('/welcome')" style="margin-bottom: 5;"></Button>
+            <Button class="button-first font" text="Já sou Spoten" (tap)="navigate('/auth')"></Button>
+        </StackLayout>
+    </GridLayout>
+</GridLayout>
+
+<GridLayout *ngIf="!isLoading"></GridLayout>

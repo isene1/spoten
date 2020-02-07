@@ -1,0 +1,37 @@
+.icon-s {
+   font-family: 'fa-solid-900','FontAwesome','fontawesome-webfont';
+   font-size:40;
+   color: #FFD940;
+   text-align: center; 
+   margin-top: 0;
+   margin-left: 10;
+   margin-right: 0;
+   margin-bottom: 0;
+ }
+ 
+ .icon-r {
+   font-family: 'fa-regular-400','FontAwesome','fontawesome-webfont';
+   font-size:40;
+   color: #FFD940;
+   text-align: center; 
+   margin-top: 0;
+   margin-left: 10;
+   margin-right: 0;
+   margin-bottom: 0;
+ }
+
+/* .icon-font {
+    font-size:42;
+    text-align: center; 
+    vertical-align: center;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+ }*/
+
+ .star {
+   vertical-align: middle;
+   align-content: center;
+   text-align: center; 
+ }

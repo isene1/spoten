@@ -1,0 +1,8 @@
+<GridLayout rows="*" columns="*">
+    <StackLayout row="0" col="0" style="vertical-align: middle; margin: 20;">
+        <!-- <Image src="res://logo_login" stretch="none" class="loginLogo"></Image> -->
+        <Label class="font" text="Insira o e-mail cadastrado." style="text-align: left; font-size: 19;"></Label>
+        <TextField hint="Email" keyboardType="email" [(ngModel)]="emailCliente" autocorrect="false" autocapitalizationType="none" class="fields font" style="margin-bottom: 10;"></TextField>
+        <Button text="Recuperar Senha" (tap)="verificar()" class="button-first font"></Button>
+    </StackLayout>
+</GridLayout>

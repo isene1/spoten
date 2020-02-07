@@ -1,0 +1,34 @@
+.categoria-bt {
+    height: 100%;
+    background-color: #E2E2E2;
+    color: #333333;
+    margin: 5;
+    border-radius: 5;
+    font-family: 'fa-solid-900','FontAwesome','fontawesome-webfont'; 
+    vertical-align: center;
+    text-align:center; 
+    font-size: 18;
+    padding: 5;
+    font-family: 'Ubuntu-R';
+}
+.filtro {
+    margin: 5;
+    height: 50;
+    width: auto;
+    vertical-align: middle;
+}
+
+.drop{
+    font-size: 18;
+    height: 40;
+    padding: 4;
+    background-color: #ECEFF1;
+    border-radius: 10;
+    width: 100%;
+    border-color:#D3D3D3;
+}
+
+.select {
+    background-color: #3FCA94;
+    color: #ffffff;
+}

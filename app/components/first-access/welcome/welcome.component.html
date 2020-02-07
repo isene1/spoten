@@ -1,0 +1,33 @@
+<GridLayout class="page" rows="*,auto">
+    <StackLayout row="0" horizontalAlignment="center">
+        <GridLayout style="
+            background-color: #ffffff;
+            width: 100%;
+            height: 20%;">
+            <StackLayout>
+                <Label class="font" text="Bem vindo a Spoten" style="text-align: center; font-size: 32; color: #4D4D4D; margin-top: 10; font-weight: bold;"></Label>
+                <GridLayout>
+                    <Label class="ubuntu" text="Escolha seu prêmio de boas vindas." style="text-align: center; vertical-align: middle; color: #4D4D4D; font-size: 21;"></Label>
+                </GridLayout>
+            </StackLayout>
+        </GridLayout>
+        
+        
+        <GridLayout style="margin-top: 10; margin-left: 10; margin-right: 10;">
+            <GridView [items]="brindeLst" colWidth="30%" rowHeight="110" orientation="vertical">
+                <ScrollView orientation="vertical" sdkExampleTitle sdkToggleNavButton>
+                    <ng-template let-item="item" let-odd="odd">
+                        <GridLayout class="listItemTemplateGrid" rows="4*, 1*" (tap)="brindeEscolhido(item)">
+                            <Image row="0" [src]="item.img_path" stretch="aspectFill" style="border-radius: 12 12 0 0;"></Image>
+                        </GridLayout>
+                    </ng-template>
+                </ScrollView>
+            </GridView>
+        </GridLayout>
+    
+    </StackLayout>
+    <GridLayout row="1" columns="7*, 3*">
+        <Label col="1" class="h3 p-15 font" text="Pular" (tap)="pular()" style="background-color: #3FCA94; color: #ffffff; border-radius: 30; margin: 5; text-align: center; vertical-align: middle; font-size: 19;"></Label>
+    </GridLayout>
+    <ActivityIndicator busy="{{ isLoading }}" width="30" height="30" style="vertical-align: middle;"></ActivityIndicator>
+</GridLayout>

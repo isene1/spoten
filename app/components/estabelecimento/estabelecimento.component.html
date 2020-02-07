@@ -1,0 +1,68 @@
+
+<ActionBar [title]="dtRows.nome_fantasia" class="action-bar"> <!--mudar o title para o do parametro recebido pela rota-->
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+    <ActionItem>
+        <StackLayout>
+            <Image src="~/images/icone-spoten-negativo.png" style="margin-right: 10;" (tap)="navigate('consumo')"></Image>
+            <!--<Label text="&#xf217;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('consumo')" style="color: #ffffff"></Label>-->
+        </StackLayout>
+    </ActionItem>
+    <ActionItem>
+        <StackLayout>
+            <Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+
+<GridLayout rows="15*,*">
+    <GridLayout row="0" rows="3* 6*">
+        <GridLayout row="0" rows="*, auto" columns="2* 3* 3*" [backgroundImage]="dtRows.img01" class="containerFotoCapa" >
+            <Image row="0" col="0" [src]="dtRows.logo"  padding="1" height="70" width="70" align="left" style="background-color: #c4c4c4; margin: 4; border-radius: 50%;"></Image>
+        </GridLayout>
+        <GridLayout row="1">
+            <ScrollView orientation="vertical" sdkExampleTitle sdkToggleNavButton>
+                <GridLayout rows="auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto">
+                    <StackLayout row="0" orientation="vertical">
+                        <!--<Label text="Avaliação" class="h3 p-16" textWrap="true"></Label>-->
+                        <StackLayout orientation="horizontal" style="margin-top: 5em; margin-left: 15em;">
+                            <Label *ngFor="let index of listStar" text="&#xf005;" horizontalAlignment="stretch" class="icon icon-font-menu" style="color:#FFD940"></Label>
+                            <Label *ngIf="metade" text="&#xf089;" horizontalAlignment="stretch" class="icon icon-font-menu" style="color:#FFD940"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout row="1">
+                        <Label text="Cashback" class="h3 p-16 font" textWrap="true" style="font-weight: bold;"></Label>
+                        <GridLayout columns="8* 2*" class="bar">
+                            <GridLayout col="0" [columns]="setProgressbarWidth(dtRows.percentComplete)" class="progressbar">
+                                <StackLayout col="0" [class]="progressbar(dtRows)"></StackLayout>
+                            </GridLayout>
+                            <StackLayout col="1" class="descValue">
+                                <Label [text]="descricao_spots(dtRows)"></Label>
+                            </StackLayout>
+                        </GridLayout>
+                    </StackLayout>
+                    <StackLayout row="2" orientation="vertical">
+                        <Label text="Telefone" class="h3 p-16 font" textWrap="true" style="margin-bottom: 0em; font-weight: bold;"></Label>
+                        <label [text]="dtRows.phone" class="m-15 font" style="margin-top: 0em;"></label>
+                    </StackLayout>
+                    <StackLayout row="3" orientation="vertical">
+                        <Label text="Endereço" class="h3 p-16 font" textWrap="true" style="margin-bottom: 0em; font-weight: bold;"></Label>
+                        <label [text]="dtRows.endereco" class="m-15 font" style="margin-top: 0em;"></label>
+                    </StackLayout>
+                    <StackLayout row="4" orientation="vertical">
+                        <Label text="E-mail" class="h3 p-16 font" textWrap="true" style="margin-bottom: 0em; font-weight: bold;"></Label>
+                        <label [text]="dtRows.emailToCustomers" class="m-15 font" style="margin-top: 0em;"></label>
+                    </StackLayout>
+                </GridLayout>
+            </ScrollView>
+        </GridLayout>
+
+    </GridLayout>
+
+    <ActivityIndicator busy="{{ isLoading }}" width="30" height="30" style="vertical-align: middle;"></ActivityIndicator>
+
+    <StackLayout row="1" style="background-color: #333333;">
+        <barra-menu></barra-menu>
+    </StackLayout> 
+</GridLayout>
+

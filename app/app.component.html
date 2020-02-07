@@ -1,0 +1,43 @@
+<!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
+<RadSideDrawer [drawerTransition]="sideDrawerTransition" gesturesEnabled="false">
+    <GridLayout tkDrawerContent rows="auto, *" class="sideStackLayout">
+        <StackLayout row="1">
+            <GridLayout columns="2* 8*" class="sideTitleStackLayout" style="background-color: #3FCA94;">
+                <Label col="0" text="&#xf060;" class="h1 icon icon-font-menu" style="text-align:center; padding: 5; color: #ffffff;" (tap)="fechaSideDrawer()"></Label>
+                <Label col="1" text="MENU" class="h1" style="text-align: left; padding: 5; vertical-align: middle; color: #ffffff;"></Label>
+            </GridLayout>
+            <StackLayout class="sideStackLayout" style="margin-top: 20;">
+                <StackLayout orientation="horizontal" (tap)="navigate('/perfil')">
+                    <Label text="&#xf007;" class="icon" style="color: #3FCA94; font-size: 21; padding: 5; margin: 10;"></Label>
+                    <label text="Perfil" style="color: #4D4D4D; font-size: 21; padding: 5; vertical-align: middle;"></label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" (tap)="navigate('/em_alta')">
+                    <Label text="&#xf135;" class="icon" style="color: #3FCA94; font-size: 21; padding: 5; margin: 10;"></Label>
+                    <label text="Em Alta" style="color: #4D4D4D; font-size: 21; padding: 5; vertical-align: middle;"></label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" (tap)="navigate('/categoria')">
+                    <Label text="&#xf009;" class="icon" style="color: #3FCA94; font-size: 21; padding: 5; margin: 10;"></Label>
+                    <label text="Categorias" style="color: #4D4D4D; font-size: 21; padding: 5; vertical-align: middle;"></label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" (tap)="navigate('/cashback')">
+                    <Label text="&#xf3d1;" class="icon" style="color: #3FCA94; font-size: 21; padding: 5; margin: 10;"></Label>
+                    <label text="Cashback" style="color: #4D4D4D; font-size: 21; padding: 5; vertical-align: middle;"></label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" (tap)="navigate('/inbox')">
+                    <Label text="&#xf0e0;" class="icon" style="color: #3FCA94; font-size: 21; padding: 5; margin: 10;"></Label>
+                    <label text="Inbox" style="color: #4D4D4D; font-size: 21; padding: 5; vertical-align: middle;"></label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" (tap)="navigate('/mapa')">
+                    <Label text="&#xf3c5;" class="icon" style="color: #3FCA94; font-size: 21; padding: 5; margin: 10;"></Label>
+                    <label text="Mapa" style="color: #4D4D4D; font-size: 21; padding: 5; vertical-align: middle;"></label>
+                </StackLayout>
+                <StackLayout orientation="horizontal" (tap)="logout()">
+                    <Label text="&#xf2f5;" class="icon" style="color: #3FCA94; font-size: 21; padding: 5; margin: 10;"></Label>
+                    <label text="Logout" style="color: #4D4D4D; font-size: 21; padding: 5; vertical-align: middle;"></label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </GridLayout>
+
+    <page-router-outlet tkMainContent></page-router-outlet>
+</RadSideDrawer>

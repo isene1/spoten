@@ -1,0 +1,36 @@
+<GridLayout class="page">
+    <StackLayout style="padding: 10%; vertical-align: middle">
+        <Label class="font" text="Escolha o seu estado e sua cidade" style="text-align: left; font-size: 19; padding-top: 10;"></Label>
+        <DropDown #dd class="font"
+            [items]="estados"
+            [(ngModel)]="selectedIndexUf"
+            (selectedIndexChanged)="onchangeEstado($event)"
+            hint="Estado"
+            style="margin: 5; padding: 15; font-size: 16;">
+        </DropDown>
+
+        <!--<DropDown #dd class="font"
+        [items]="cidades"
+        [(ngModel)]="selectedIndexCity"
+        (selectedIndexChanged)="onchangeCidade($event)"
+        hint="Cidade"
+        style="margin: 5; padding: 15; font-size: 16;">
+         </DropDown>-->
+         <StackLayout style="margin-bottom: 15;">
+            <ListView [items]="citySujestion" visibility="{{ sujestionListShow ? 'visible' : 'collapsed' }}" height="150">
+                <ng-template let-item="item">
+                    <StackLayout>
+                        <Label [text]="item.display" (tap)="citySelected(item)" margin="20"></Label>
+                    </StackLayout>
+                </ng-template>
+            </ListView>
+            <TextField [text]="cityName" hint="Cidade" (textChange)="onTextChange()" (clear)="onClear()"
+              (returnPress)="onSubmit()" (loaded)="onLoad($event)" class="fields"></TextField>
+        </StackLayout>
+
+        <Button class="button-first font" text="Confirmar Estado e Cidade" (tap)="saveLocationAndRedirect()"></Button> 
+
+    </StackLayout>
+    <ActivityIndicator busy="{{ isLoading }}" width="30" height="30"></ActivityIndicator>
+
+</GridLayout>

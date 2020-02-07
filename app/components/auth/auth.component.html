@@ -1,0 +1,21 @@
+<GridLayout rows="*" columns="*">
+    <GridLayout row="0" col="0" visibility="{{ webViewInstaEnabled ? 'collapsed' : 'visible' }}">
+        <StackLayout row="0" col="0" style="vertical-align: middle; margin: 20;">
+            <Image src="~/images/icone-spoten-positivo.png" stretch="aspectFit" class="loginLogo"></Image>
+            <TextField hint="Email" keyboardType="email" [(ngModel)]="user.Username" autocorrect="false" autocapitalizationType="none" class="fields font"></TextField>
+            <TextField hint="Senha" secure="true" [(ngModel)]="user.Senha" class="fields font" style="margin-bottom: 10;"></TextField>
+            <Button class="button-first font" text="Login" (tap)="login()" style="margin-bottom: 5;"></Button>
+            <Button class="button-first font" text="Conecte-se via Facebook" (tap)="conectViaFB()" style="margin-bottom: 5;"></Button>
+            <Button class="button-first font" text="Conecte-se via Instagram" (tap)="conectViaInsta()" style="margin-bottom: 5;"></Button>
+            <Button class="button-first font" text="Cadastrar" (tap)="cadastrar()"style="margin-bottom: 5;"></Button>
+            <Label class="font" text="Esqueci minha senha" (tap)="recuperarSenha()" style="margin-top: 10; text-align: right; color: #2680EB; font-size: 14;"></Label>
+        </StackLayout>
+    </GridLayout>
+    <GridLayout row="0" rows="50 *" visibility="{{ webViewInstaEnabled ? 'visible' : 'collapsed' }}">
+        <GridLayout row="0" rows="*" columns="2*, 8*" class="form">
+            <Button class="icon" row="0" col="0" text="&#xf410;" (tap)="closeWebView()" style="color: red;"></Button>
+            <TextField #urlField row="0" col="1" hint="Enter URL" [text]="webViewSrc" autocorrect="false" verticalAlignment="center" class="input input-border m-t-0" autocapitalizationType="none"></TextField>
+        </GridLayout>
+        <WebView row="1" #authWebView [src]="webViewSrc"></WebView>
+    </GridLayout>
+</GridLayout>

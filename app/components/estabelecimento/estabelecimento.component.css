@@ -1,0 +1,37 @@
+.containerFotoCapa {
+    background-color: #ECEFF1;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.bar {
+    height: 25;
+    border-radius: 10;
+    background: #3FCA94;
+    margin-left: 15em;
+    margin-right: 15em;
+}
+
+.progressbar {
+    height: 25;
+    border-radius: 10;
+    background: #ECEFF1;
+}
+.progressbar-value1 {
+    background: #889CFF;
+    border-radius: 10;
+}
+
+.progressbar-value2 {
+    background: #889CFF;
+    border-radius: 10;
+}
+
+.progressbar-value3 {
+    background: #889CFF;
+    border-radius: 10;
+}
+.descValue {
+    font-size: 16;
+    text-align: center;
+    vertical-align: middle;
+}

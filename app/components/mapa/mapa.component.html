@@ -1,0 +1,25 @@
+<ActionBar title="MAPA SPOTEN" class="action-bar">
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+    <ActionItem>
+        <StackLayout>
+            <Image src="~/images/icone-spoten-negativo.png" style="margin-right: 10;" (tap)="navigate('consumo')"></Image>
+            <!--<Label text="&#xf217;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('consumo')" style="color: #ffffff"></Label>-->
+        </StackLayout>
+    </ActionItem>
+    <ActionItem>
+        <StackLayout>
+            <Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout rows="15*,*">
+    <GridLayout row="0">
+        <MapView #mapView [latitude]="latitude" [longitude]="longitude"
+                    [zoom]="zoom" [minZoom]="minZoom" [maxZoom]="maxZoom" [bearing]="bearing" myLocationButtonEnabled="true"
+                    [tilt]="tilt" i-padding="50,50,50,50" [padding]="padding" (mapReady)="onMapReady($event)" (cameraChanged)="onCameraChanged($event)"></MapView>
+    </GridLayout>
+    <StackLayout row="1" style="background-color: #333333;">
+        <barra-menu></barra-menu>
+    </StackLayout>
+</GridLayout>

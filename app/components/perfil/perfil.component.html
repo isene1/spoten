@@ -1,0 +1,49 @@
+<ActionBar title="PERFIL" class="action-bar">
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+    <ActionItem>
+		<StackLayout>
+			<Image src="~/images/icone-spoten-negativo.png" style="margin-right: 10;" (tap)="navigate('consumo')"></Image>
+			<!--<Label text="&#xf217;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('consumo')" style="color: #ffffff"></Label>-->
+		</StackLayout>
+    </ActionItem>
+    <ActionItem>
+        <StackLayout>
+            <Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout rows="15*,*" columns="*">
+    <ScrollView row="0" col="0">
+        <StackLayout horizontalAlignment="center" class="container" style="margin: 10em 10em 0 10em">
+            <Label text="Nome" style="color: #4D4D4D; font-size: 19;"></Label>
+            <TextField hint="Nome" [text]="perfil.name" returnKeyType="next"  autocorrect="false" autocapitalizationType="none" class="fields" style="width: 100%; margin-bottom: 10;"></TextField>
+            <Label text="Sobrenome" style="color: #4D4D4D; font-size: 19;"></Label>
+            <TextField hint="Sobrenome" [text]="perfil.surname" returnKeyType="next"  autocorrect="false" autocapitalizationType="none" class="fields" style="margin-bottom: 10;"></TextField>
+            <Label text="Telefone" style="color: #4D4D4D; font-size: 19;"></Label>
+            <MaskedTextField hint="Telefone*" mask="(99) 99999-9999" [(ngModel)]="perfil.phone" keyboardType="phone" returnKeyType="next" class="fields" style="margin-bottom: 10;"></MaskedTextField>
+            <Label text="Data de nascimento" style="color: #4D4D4D; font-size: 19;"></Label>
+            <MaskedTextField hint="Nascimento DD/MM/AAAA*" mask="99/99/9999" [(ngModel)]="perfil.birth" keyboardType="number" returnKeyType="next" class="fields" style="margin-bottom: 10;"></MaskedTextField>
+
+            <DropDown class="fields" hint="Estado" [items]="states" selectedIndex="{{selectedState}}" (selectedIndexChanged)="onChangeState($event)" marginTop="10px" style="font-size: 19;"></DropDown>
+
+			<StackLayout style="margin-bottom: 15;">
+                <ListView [items]="citySujestion" visibility="{{ sujestionListShow ? 'visible' : 'collapsed' }}" height="150">
+                    <ng-template let-item="item">
+                        <StackLayout>
+                            <Label [text]="item.display" (tap)="citySelected(item)" margin="20"></Label>
+                        </StackLayout>
+                    </ng-template>
+                </ListView>
+                <TextField [text]="cityName" hint="Cidade" (textChange)="onTextChange()" (clear)="onClear()"
+                  (returnPress)="onSubmit()" (loaded)="onLoad($event)" class="fields"></TextField>
+            </StackLayout>
+
+            <Button class="button-first" text="Editar perfil" (tap)="onTap()"></Button>
+        </StackLayout>
+    </ScrollView>
+    <StackLayout row="1" style="background-color: #333333">
+        <barra-menu></barra-menu>
+    </StackLayout>
+    <!--<ActivityIndicator rowSpan="3" busy="{{ isLoading }}" width="30" height="30"></ActivityIndicator>-->
+</GridLayout>

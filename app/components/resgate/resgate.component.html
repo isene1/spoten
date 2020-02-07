@@ -1,0 +1,36 @@
+<ActionBar title="RESGATE" class="action-bar"> 
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
+
+<GridLayout rows="15*,*">
+    <ScrollView row="0" orientation="vertical">
+        <GridLayout rows="3* 6*">
+            <GridLayout row="0" rows="*, *" columns="2* 6*" class="containerFotoCapa" style="padding: 25em;">
+                <Image row="0" col="0" [src]="estabResgate.logo"  padding="1" height="80" width="80" align="left" style="background-color: #E2E2E2; margin: 4; border-radius: 50%;"></Image>
+                <Label row="0" col="1" class="h2 p-15" [text]="estabResgate.nome_fantasia" style="vertical-align: middle; color: #ffffff; font-weight: bold; font-size: 19;"></Label>
+                <StackLayout row="1" col="1" orientation="horizontal" horizontalAlignment="right" verticalAlignment="top" style="margin: 10em;">
+                    <Label *ngFor="let index of listStar" text="&#xf005;" horizontalAlignment="stretch" class="icon icon-font-menu" style="color:#FFD940"></Label>
+                </StackLayout>
+            </GridLayout>
+            <!--<ScrollView row="1" orientation="vertical">-->
+                <GridLayout row="1">
+                    <StackLayout>
+
+                        <StackLayout style="margin: 10em;">
+                            <Label class="h3 p-15" text="Você tem um resgate de {{ estabResgate.valor }}." style="text-align: center; font-weight: bold; font-size: 21;"></Label>
+                            <Label class="h3 p-15" [text]="estabResgate.description"></Label>
+                            <Label class="h3 p-15" text="Informe abaixo o código de resgate"></Label>
+                            <TextField #txCodigo textAlignment="center" fontSize="32" keyboardType="number" returnKeyType="done" class="fields-box"></TextField>
+                            <Label class="h4 p-15" text="Verifique o código de resgate no estabelecimento" autocorrect="false" secure="true" style="text-align: center;"></Label>
+                            <Button text="Resgatar" class="button-interno" (tap)="resgatar(txCodigo.text)"></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </GridLayout>
+            <!--</ScrollView>-->
+        </GridLayout>
+    </ScrollView>
+    <ActivityIndicator busy="{{ isLoading }}" width="30" height="30" style="vertical-align: middle;"></ActivityIndicator>
+    <StackLayout row="1" style="background-color: #333333;">
+        <barra-menu></barra-menu>
+    </StackLayout> 
+</GridLayout>

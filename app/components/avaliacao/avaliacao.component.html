@@ -1,0 +1,58 @@
+<ActionBar title="Avalie: {{nomeEmpresa}}" class="action-bar">
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+    <ActionItem>
+        <StackLayout>
+            <Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout rows="15*,*" columns="*">
+    <GridLayout row="0">
+        <ScrollView orientation="vertical">
+            <GridLayout rows="auto auto auto auto auto auto">
+                <Label row="0" class="h3 p-15" text="Dê uma nota de 1 a 5 nos seguintes quesitos:" style="word-wrap: break-word; text-align: center; font-size: 17;font-weight: bold;"></Label>
+                <GridLayout row="1" rows="auto auto">
+                    <Label row="0" class="h2 p-15" text="Limpeza" style="margin-top: 0;"></Label>
+                    <StackLayout row="1" orientation="horizontal" class="star">
+                        <Label *ngFor="let index of listStar" text="&#xf005;" horizontalAlignment="stretch" class="icon-r" (tap)="tapItem1(index)"></Label>
+                    </StackLayout>
+                    <StackLayout row="1" orientation="horizontal" class="star">
+                        <Label *ngFor="let index of ar1" text="&#xf005;" horizontalAlignment="stretch" class="icon-s"></Label>
+                    </StackLayout>
+                </GridLayout>
+                <GridLayout row="2" rows="auto auto">
+                    <Label row="0" class="h2 p-15" text="Atendimento"></Label>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label *ngFor="let index of listStar" text="&#xf005;" horizontalAlignment="stretch" class="icon-r" (tap)="tapItem2(index)"></Label>
+                    </StackLayout>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label *ngFor="let index of ar2" text="&#xf005;" horizontalAlignment="stretch" class="icon-s"></Label>
+                    </StackLayout>
+                </GridLayout>
+                <GridLayout row="3" rows="auto auto">
+                    <Label row="0" class="h2 p-15" text="Ambiente"></Label>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label *ngFor="let index of listStar" text="&#xf005;" horizontalAlignment="stretch" class="icon-r" (tap)="tapItem3(index)"></Label>
+                    </StackLayout>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label *ngFor="let index of ar3" text="&#xf005;" horizontalAlignment="stretch" class="icon-s"></Label>
+                    </StackLayout>
+                </GridLayout>
+                <GridLayout row="4" rows="auto auto">
+                    <Label row="0" class="h2 p-15" text="Custo Benefício"></Label>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label *ngFor="let index of listStar" text="&#xf005;" horizontalAlignment="stretch" class="icon-r" (tap)="tapItem4(index)"></Label>
+                    </StackLayout>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label *ngFor="let index of ar4" text="&#xf005;" horizontalAlignment="stretch" class="icon-s"></Label>
+                    </StackLayout>
+                </GridLayout>                    
+                <Button row="5" class="button-interno" text="Continuar" (tap)="finalizar()" style="margin: 10; margin-top: 30;"></Button>
+            </GridLayout>
+        </ScrollView>
+    </GridLayout>
+    <StackLayout row="1" style="background-color: #333333;">
+		<barra-menu></barra-menu>
+	</StackLayout>
+</GridLayout>

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "547476018561",
+    "firebase_url": "https://spoten-app.firebaseio.com",
+    "project_id": "spoten-app",
+    "storage_bucket": "spoten-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:547476018561:android:dfb413e26f4c0327",
+        "android_client_info": {
+          "package_name": "com.wmsit.spotenclient"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "547476018561-ejf5h88l7lm6feilr837ag15102qr9cc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzOzKL0tm0jX7l4UzL457sUB8K4kv4bKw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

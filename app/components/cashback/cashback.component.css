@@ -1,0 +1,50 @@
+.progressbar {
+    height: 25;
+    border-radius: 10;
+    background: #ECEFF1;
+}
+.progressbar-value1 {
+    background: #889CFF;
+    border-radius: 10;
+}
+
+.progressbar-value2 {
+    background: #889CFF;
+    border-radius: 10;
+}
+
+.progressbar-value3 {
+    background: #889CFF;
+    border-radius: 10;
+}
+
+.list {
+    margin-left: 10;
+    margin-right: 10;
+    padding: 5;
+}
+
+.descName {
+    font-size: 18;
+    margin: 5;
+    padding-bottom: 5;
+    padding-top: 10;
+}
+
+.bar {
+    height: 25;
+    border-radius: 10;
+    background: #3FCA94;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.descValue {
+    font-size: 12;
+    text-align: center;
+    vertical-align: middle;
+}
+.passaro {
+    background-color: #FBA752;
+    color: #ffffff;
+}

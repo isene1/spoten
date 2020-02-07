@@ -1,0 +1,32 @@
+
+<ActionBar title="CONSUMO" class="action-bar">
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+    <ActionItem>
+        <StackLayout>
+            <Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout rows="15*,*">
+    <StackLayout row="0">
+        <Label class="h2 p-15" text="Escolha o estabelecimento" style="text-align: center;"></Label>
+        <TextField hint="Pesquisar estabelecimento" (textChange)="onTextChange($event)" style="margin-left: 10; margin-right: 10;"></TextField>
+
+        <GridLayout tkExampleTitle tkToggleNavButton style="margin: 8;">
+            <RadListView [items]="dataEstabelecimentos | estabelecimentoFilter:searchText">
+                <ng-template tkListItemTemplate let-item="item">
+                    <GridLayout columns="3*, 9*" (tap)="onTap(item)" class="lista-est">
+                        <Label col="1" class="font" [text]="item.nome_fantasia" style="color: #4D4D4D; vertical-align: middle; font-size: 21; margin: 4; font-weight: bold;"></Label>
+                        <Image col="0" [src]="item.logo" height="70" width="70" style="background-color: #E2E2E2; margin: 4; border-radius: 50%"></Image>
+                    </GridLayout>
+                </ng-template>
+            </RadListView>
+        </GridLayout>
+    </StackLayout>
+
+    <ActivityIndicator busy="{{ isLoading }}" width="30" height="30" style="vertical-align: middle;"></ActivityIndicator>
+    <StackLayout row="1" style="background-color: #333333;">
+        <barra-menu></barra-menu>
+    </StackLayout>
+</GridLayout>

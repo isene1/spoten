@@ -1,0 +1,68 @@
+<GridLayout rows="*" columns="*">
+
+    <ScrollView row="0" col="0" visibility="{{ webViewInstaEnabled ? 'collapsed' : 'visible' }}">
+        <StackLayout horizontalAlignment="center" class="container">
+            <Label text="Termine o cadastro para ganhar seu presente" textWrap="true" class="titulo"></Label>
+
+            <TextField hint="Nome*" returnKeyType="next" [(ngModel)]="dtRows.fName" autocorrect="false"
+                autocapitalizationType="sentences" class="fields font"></TextField>
+                
+            <TextField hint="Sobrenome" returnKeyType="next" [(ngModel)]="dtRows.lName" autocorrect="false"
+                autocapitalizationType="sentences" class="fields font"></TextField>
+
+            <MaskedTextField class="fields font" hint="CPF*" mask="999 999 999 99" [(ngModel)]="dtRows.cpf" keyboardType="number" returnKeyType="next"></MaskedTextField>
+
+            <MaskedTextField class="fields font" hint="Telefone*" mask="(99) 99999-9999" [(ngModel)]="dtRows.phone" keyboardType="phone" returnKeyType="next" style="margin-bottom: 5;"></MaskedTextField>            
+
+            <StackLayout class="credentialField">
+                <DropDown #dd class="font" hint="Sexo*" [items]="sexLst" (selectedIndexChanged)="onChangeSex($event)" style="font-size: 19; padding: 5;"></DropDown>
+            </StackLayout>
+            
+            <MaskedTextField class="fields font" hint="Nascimento DD/MM/AAAA*" mask="99/99/9999" [(ngModel)]="nascimento" keyboardType="number" returnKeyType="next" style="margin-bottom: 5;"></MaskedTextField>
+            
+            <Label class="font" text="Escolha os seus interesses" textWrap="true" style="font-size: 18; color: #4D4D4D; padding-top: 10; padding-bottom: 10;"></Label>
+
+            <GridView [items]="interesses" colWidth="50%" rowHeight="36" orientation="vertical">
+                <ng-template let-item="item" let-odd="odd" class="listItemTemplateGrid">
+                    <GridLayout [ngClass]="{'select': item.select}" class="listItemTemplateGrid" (tap)="registraInteresse(item)">
+                        <Label class="labelItem" [text]="item.name"></Label>
+                    </GridLayout>
+                </ng-template>
+            </GridView>
+
+            <GridLayout columns="7*, 3*">
+                <Label col="0" class="font" text="Concordo com os termos de uso" textWrap="true" (tap)="abrirTermos()" style="margin-top: 10; text-decoration: underline; color: #2680EB; font-size: 18;"></Label>
+                <Switch col="1" class="m-15" checked="false" (checkedChange)="checked($event)"></Switch>
+            </GridLayout>
+
+            <Label class="font" text="Cadastre um e-mail e senha" textWrap="true" style="font-size: 18; color: #4D4D4D; padding-top: 10; padding-bottom: 10;"></Label>
+
+            <TextField class="fields font" hint="E-mail" keyboardType="email" returnKeyType="next" [(ngModel)]="dtRows.email"
+                autocorrect="false" autocapitalizationType="none"></TextField>
+
+            <TextField hint="Senha" returnKeyType="next" secure="true" [(ngModel)]="dtRows.senha" class="fields font"></TextField>
+            <TextField hint="Confirmar senha" returnKeyType="done" secure="true" [(ngModel)]="confirmaSenha" class="fields font" style="margin-bottom: 10;"></TextField>
+
+            <Button class="button-first" text="Cadastrar" (tap)="postOnDb()"></Button>
+
+            <Label class="font" text="Ou conectar-se via:" textWrap="true" style="font-size: 18; color: #4D4D4D; padding-top: 10; padding-bottom: 10;"></Label>
+
+            <Button class="button-first" text="Conecte-se via Facebook" (tap)="conectViaFB()" style="margin-bottom: 10;"></Button>
+            <Button class="button-first" text="Conecte-se via Instagram" (tap)="conectViaInsta()" style="margin-bottom: 10;"></Button>
+
+        </StackLayout>
+
+    </ScrollView>
+
+
+    <GridLayout row="0" rows="50 * " sdkExampleTitle sdkToggleNavButton  visibility="{{ webViewInstaEnabled ? 'visible' : 'collapsed' }}">
+        <GridLayout row="0" rows="*" columns="2*, 8*" class="form">
+            <Button class="icon" row="0" col="0" text="&#xf410;" (tap)="closeWebView()" style="color: red;"></Button>
+            <TextField #urlField row="0" col="1" hint="Enter URL" [text]="webViewSrc" autocorrect="false" verticalAlignment="center" class="input input-border m-t-0" autocapitalizationType="none"></TextField>
+        </GridLayout>
+        <WebView row="1" #myWebView [src]="webViewSrc"></WebView>
+    </GridLayout>
+
+    <ActivityIndicator busy="{{ isLoading }}" width="150" height="150"></ActivityIndicator>
+
+</GridLayout>

@@ -1,0 +1,48 @@
+{
+    "nativescript": {
+        "id": "com.wmsit.spotenclient",
+        "tns-ios": {
+            "version": "4.2.0"
+        },
+        "tns-android": {
+            "version": "4.2.0"
+        }
+    },
+    "description": "Spoten Cliente",
+    "license": "SEE LICENSE IN <your-license-filename>",
+    "repository": "<fill-your-repository-here>",
+    "dependencies": {
+        "@angular/animations": "~6.1.0",
+        "@angular/common": "~6.1.0",
+        "@angular/compiler": "~6.1.0",
+        "@angular/core": "~6.1.0",
+        "@angular/forms": "~6.1.0",
+        "@angular/http": "~6.1.0",
+        "@angular/platform-browser": "~6.1.0",
+        "@angular/platform-browser-dynamic": "~6.1.0",
+        "@angular/router": "~6.1.0",
+        "nativescript-angular": "~6.1.0",
+        "nativescript-drop-down": "^4.0.1",
+        "nativescript-geolocation": "^4.3.1",
+        "nativescript-google-maps-sdk": "^2.6.1",
+        "nativescript-grid-view": "^4.1.1",
+        "nativescript-masked-text-field": "^4.0.0",
+        "nativescript-ng2-carousel": "^0.1.0",
+        "nativescript-plugin-firebase": "^7.1.4",
+        "nativescript-star-ratings": "^1.0.0",
+        "nativescript-theme-core": "~1.0.4",
+        "nativescript-ui-dataform": "^3.7.3",
+        "nativescript-ui-listview": "^3.7.1",
+        "nativescript-ui-sidedrawer": "^4.3.0",
+        "reflect-metadata": "~0.1.8",
+        "rxjs": "^6.0.0",
+        "tns-core-modules": "~4.2.0",
+        "ts-md5": "^1.2.4",
+        "zone.js": "^0.8.26"
+    },
+    "devDependencies": {
+        "typescript": "~2.7.2",
+        "nativescript-dev-typescript": "~0.7.0"
+    },
+    "readme": "Spoten Cliente"
+}

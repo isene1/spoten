@@ -1,0 +1,36 @@
+<ActionBar title="REGISTRAR CONSUMO" class="action-bar">
+    <NavigationButton icon="res://baseline_menu_white_24" (tap)="openDrawer()"></NavigationButton>
+    <ActionItem>
+        <StackLayout>
+            <Label text="&#xf002;" class="icon icon-font-menu" marginRight="5%" (tap)="navigate('busca')"></Label>
+        </StackLayout>
+    </ActionItem>
+</ActionBar>
+
+<GridLayout rows="15*,*" columns="*">
+
+    <ScrollView row="0" orientation="vertical">
+        <GridLayout rows="5* 6*">
+            <GridLayout row="0" rows="*, auto" columns="3* 6*" class="containerFotoCapa" style="padding: 5em;">
+                <Image row="0" col="0" [src]="logo"  padding="3" height="80" width="80" align="left" style="background-color: #E2E2E2; margin: 4; border-radius: 50%;"></Image>
+                <Label row="0" col="1" class="h2 p-15" [text]="nome_fantasia" style="vertical-align: middle; color: #ffffff; font-weight: bold; font-size: 19;"></Label>
+            </GridLayout>
+            <GridLayout row="1" class="content"> 
+                <GridLayout rows="3* 1*" style="margin:10;">
+                    <GridLayout row="0" rows="* *" columns="* *" style="margin: 10em;">
+                        <Label row="0" col="0" class="h2 p-15" text="Valor R$: " style="text-align: left; margin-bottom: 5;"></Label>
+                        <TextField class="fields-box" row="0" col="1" #txValor textAlignment="center" fontSize="32" keyboardType="number" returnKeyType="next" hidden="false" style="margin-bottom: 5;"></TextField>
+                        <Label row="1" col="0" class="h2 p-15" text="Código: " style="text-align: left;"></Label>
+                        <TextField class="fields-box" row="1" col="1" #txCodigo textAlignment="center" fontSize="32" keyboardType="number" returnKeyType="done" secure="true"></TextField>
+                    </GridLayout>
+                    <Button class="button-interno" row="1" text="Gerar Consumo" (tap)="gerarConsumo(txValor.text, txCodigo.text)"></Button>
+                </GridLayout>
+            </GridLayout>
+        </GridLayout>
+    </ScrollView>
+    
+    <StackLayout row="1" row="1" style="background-color: #333333;">
+        <barra-menu></barra-menu>
+    </StackLayout>
+    <ActivityIndicator rowSpan="3" busy="{{ isLoading }}" width="30" height="30"></ActivityIndicator>
+</GridLayout>
